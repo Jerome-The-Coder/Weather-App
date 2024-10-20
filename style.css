@@ -1,102 +1,95 @@
 html {
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
+}
+body {
+  background: black;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: url(cursor.png), auto;
+  font-family: "Arial", sans-serif;
+}
+form {
+  margin: 2rem;
+}
+span {
+  display: flex;
+  flex-wrap: wrap;
+}
+input {
+  cursor: url(text.png), auto;
+  font-size: 3rem;
+}
+:is(h1, p) {
+  color: white;
+}
+div {
+  background: black;
+  width: max-content;
+  border-radius: 5px;
+  height: 500px;
+  display: none;
+  position: relative;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+div::after,
+div::before {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  padding: 5px;
+  background-image: conic-gradient(
+    from var(--angle),
+    transparent 70%,
+    deepskyblue 15%,
+    yellow
+  );
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  z-index: -1;
+  border-radius: 5px;
+  animation: spin 3s linear infinite;
+}
+div::before {
+  filter: blur(1rem);
+}
+.name {
+  font-size: 4rem;
+}
+.desc {
+  font-style: italic;
+}
+.emoji {
+  font-size: 7rem;
+  translate: 0 -80%;
+}
+:is(.name, .temp, .humidity, .desc) {
+  font-weight: bold;
+}
+:is(.errormsg, .temp, .humidity, .desc) {
+  font-size: 2rem;
+}
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+@keyframes spin {
+  to {
+    --angle: 360deg;
   }
-  body {
-    background: black;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    overflow: hidden;
-    cursor: url(cursor.png), auto;
-    font-family: "Arial", sans-serif;
-  }
-  form{
-    margin: 2rem;
-  }
-  span{
-    display: flex;
-    flex-wrap: wrap;
+}
+@media (max-width: 768px) {
+  div {
+    max-width: 90%;
   }
   input {
-    cursor: url(text.png), auto;
-    font-size: 3rem;
-  }
-  h1,
-  p {
-    color: white;
-  }
-  div {
-    background: black;
-    width: max-content;
-    border-radius: 5px;
-    height: 500px;
-    display: none;
-    position: relative;
-    padding-left: 10px;
-    padding-right: 10px;
-  }
-  div::after,
-  div::before {
-    content: "";
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    padding: 5px;
-    background-image: conic-gradient(from var(--angle), transparent 70%, deepskyblue 15%, yellow);
-    top: 50%;
-    left: 50%;
-    translate: -50% -50%;
-    z-index: -1;
-    border-radius: 5px;
-    animation: spin 3s linear infinite;
-  }
-  div::before {
-    filter: blur(1rem);
-  }
-  .name {
-    font-size: 4rem;
-  }
-  .desc {
-    font-size: 2rem;
-    font-style: italic;
-  }
-  .temp {
     font-size: 2rem;
   }
-  .emoji {
-    font-size: 7rem;
-    translate: 0 -80%;
-  }
-  .name,
-  .temp,
-  .humidity,
-  .desc {
-    font-weight: bold;
-  }
-  .humidity {
-    font-size: 2rem;
-  }
-  .errormsg {
-    font-size: 2rem;
-  }
-  
-  @property --angle {
-    syntax: "<angle>";
-    initial-value: 0deg;
-    inherits: false;
-  }
-  @keyframes spin {
-    to {
-      --angle: 360deg;
-    }
-  }
-  @media (max-width: 768px) {
-    div {
-      max-width: 90%; 
-    }
-    input {
-      font-size: 2rem; 
-    }
-  }
+}
