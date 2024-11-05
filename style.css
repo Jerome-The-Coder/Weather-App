@@ -21,7 +21,7 @@ span {
 }
 input {
   cursor: url(text.png), auto;
-  font-size: 3rem;
+  font-size: 1.5rem;
   background: white;
 }
 :is(h1, p) {
