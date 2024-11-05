@@ -90,12 +90,4 @@ div::before {
   div {
     max-width: 90%;
   }
-  input {
-    font-size: 2rem;
-  }
-}
-@media (max-width: 350px) {
-  input {
-    font-size: 1rem;
-  }
 }
